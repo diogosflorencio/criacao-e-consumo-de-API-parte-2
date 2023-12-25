@@ -6,32 +6,54 @@
 ![Bitbucket open issues](https://img.shields.io/bitbucket/issues/diogosflorencio/criacao-e-consumo-de-API?style=for-the-badge)
 ![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/diogosflorencio/criacao-e-consumo-de-API?style=for-the-badge)
 
-<img src="https://github.com/diogosflorencio/criacao-e-consumo-de-API/assets/33941005/15242e1a-de71-40f7-85e3-217dcb71b86b" style="width:100%" alt="Exemplo de imagem">
+<img src="https://github.com/diogosflorencio/criacao-e-consumo-de-API-parte-2/assets/33941005/609ead28-8a1e-443e-b9d6-65ec0025271d" style="width:100%" alt="Exemplo de imagem">
 
-> Projeto em desenvolvimento para criar e consumir uma API simples usando Node.js. Atualmente é apenas gerado um valor randomico no backend e exibido no frontend. O objetivo final é permitir que os usuários adicionem palavras à API, que serão salvas em um array no backend e disponibilizadas para os próximos usuários.
+> Explorando os conceitos de requisições GET e POST em uma API que armazena valores do usuário no backend e os exibe no frontend. A API é implementada e hospedada no Replit, enquanto o frontend faz uso da promise `fetch` para interagir com a API e manipular os dados
 
 <br>
 
  **Código da API:**
 
 ```javascript
-var http = require('http');
+import http from "http";
+import Database from "@replit/database";
 
-http.createServer(function(req, res){
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.writeHead(200, {'Content-Type': 'application/json'});
-  
-  let numero = {
-    valor: Math.round(Math.random() * 100)
-  }
+const db = new Database();
 
-  res.end(JSON.stringify(numero));
-}).listen(8080);
+http
+  .createServer(function (req, res) {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.writeHead(200, { "Content-Type": "application/json" });
+
+    if (req.method === "POST") {
+      let body = "";
+      req.on("data", (parte) => {
+        body += parte;
+      });
+
+      req.on("end", () => {
+        const bodyJSON = JSON.parse(body);
+        if (!db["nomes"]) {
+          db["nomes"] = [bodyJSON];
+        } else {
+          db["nomes"].push(bodyJSON);
+        }
+        res.end(JSON.stringify({ success: true }));
+      });
+    } else if (req.method === "GET") {
+      const nomesData = db['nomes'] || {};
+      res.end(JSON.stringify(nomesData));
+      console.log(nomesData);
+    }
+  })
+  .listen(8080, () => {
+  });
+
 ```
 
 ---
 
-Link: https://consumindo-api.diogoflorencio.repl.co
+Link: https://consumingo-api-2.diogoflorencio.repl.co
 
 ---
 
@@ -43,20 +65,20 @@ O projeto ainda está em desenvolvimento, e as próximas atualizações serão f
 - [x] Consumir com fetch no front
 - [x] Criar front e hospedar tudo
 - [x] Modificar o back para selecionar palavras de um array
-- [ ] Modificar o front para permitir a adição de novas palavras via API
-- [ ] Modificar a API para aceitar POST ou PUT
-- [ ] Finalizar o projeto
+- [x] Modificar o front para permitir a adição de novas palavras via API
+- [x] Modificar a API para aceitar POST ou PUT
+- [x] Finalizar o projeto
 
 ## 💻 Pré-requisitos
 
-Não há pré-requisitos para começar. Basta clicar no [link do projeto](https://consumindo-api.diogoflorencio.repl.co/).
+Não há pré-requisitos para começar. Basta clicar no [link do projeto](https://consumingo-api-2.diogoflorencio.repl.co/).
 
 ## 🚀 Instalando "Criando e Consumindo uma API com Node.js"
 
 Para instalar o projeto, basta clonar o repositório:
 
 ```
-git clone https://github.com/diogosflorencio/criacao-e-consumo-de-API.git
+git clone https://github.com/diogosflorencio/criacao-e-consumo-de-API-parte-2
 ```
 
 ## ☕ Usando Criando e Consumindo uma API com Node.js
@@ -78,8 +100,6 @@ Para contribuir com o projeto, siga estas etapas:
 5. Crie a solicitação de merge.
 
 Como alternativa, consulte a documentação do GitHub em [como criar uma solicitação pull](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
-
-## 😄 Seja um dos Contribuidores
 
 Agradecemos às seguintes pessoas que contribuíram para este projeto:
 
