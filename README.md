@@ -53,7 +53,7 @@ http
 
 ---
 
-Link: https://consumingo-api-2.diogoflorencio.repl.co
+Link: https://consumindo-api-2.diogoflorencio.repl.co
 
 ---
 
@@ -71,7 +71,7 @@ O projeto ainda está em desenvolvimento, e as próximas atualizações serão f
 
 ## 💻 Pré-requisitos
 
-Não há pré-requisitos para começar. Basta clicar no [link do projeto](https://consumingo-api-2.diogoflorencio.repl.co/).
+Não há pré-requisitos para começar. Basta clicar no [link do projeto](https://consumindo-api-2.diogoflorencio.repl.co/).
 
 ## 🚀 Instalando "Criando e Consumindo uma API com Node.js"
 
