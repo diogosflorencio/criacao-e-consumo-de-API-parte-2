@@ -86,7 +86,7 @@ git clone https://github.com/diogosflorencio/criacao-e-consumo-de-API-parte-2
 Para utilizar o projeto, siga estas etapas:
 
 ```
-Basta clicar em "GERAR"
+Basta escrever algo no input, clicar em adicionar e atualizar a lista
 ```
 
 ## 📫 Contribuindo para "Criando e Consumindo uma API com Node.js"
