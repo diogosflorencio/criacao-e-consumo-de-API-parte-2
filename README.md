@@ -53,7 +53,7 @@ http
 
 ---
 
-Link: https://consumindo-api-2.diogoflorencio.repl.co
+Link: https://4a1364ec-a9b5-4be5-948b-ce50f3390329-00-31a2ymkdeq91u.spock.replit.dev/
 
 ---
 
@@ -71,7 +71,7 @@ O projeto ainda está em desenvolvimento, e as próximas atualizações serão f
 
 ## 💻 Pré-requisitos
 
-Não há pré-requisitos para começar. Basta clicar no [link do projeto](https://consumindo-api-2.diogoflorencio.repl.co/).
+Não há pré-requisitos para começar. Basta clicar no [link do projeto](https://4a1364ec-a9b5-4be5-948b-ce50f3390329-00-31a2ymkdeq91u.spock.replit.dev/).
 
 ## 🚀 Instalando "Criando e Consumindo uma API com Node.js"
 
